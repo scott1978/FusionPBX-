@@ -1,1 +1,1 @@
-# hzxpbx-install.sh
+FusionPBX汉化
