@@ -18,7 +18,7 @@ verbose "rpm -ivh --quiet pgdg-centos96-9.6-3.noarch.rpm start"
 yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 verbose "rpm -ivh --quiet pgdg-centos96-14.noarch.rpm end"
 yum -y update
-yum -y install postgresql96 postgresql96-server postgresql96-libs postgresql96-contrib postgresql96-devel
+yum -y install postgresql14 postgresql14-server postgresql14-libs postgresql14-contrib postgresql14-devel
 
 #send a message
 verbose "Initalize PostgreSQL database"
@@ -39,17 +39,17 @@ cwd=$(pwd)
 cd /tmp
 
 #add the databases, users and grant permissions to them
-sudo -u postgres /usr/pgsql-9.6/bin/psql -d fusionpbx -c "DROP SCHEMA public cascade;";
-sudo -u postgres /usr/pgsql-9.6/bin/psql -d fusionpbx -c "CREATE SCHEMA public;";
-sudo -u postgres /usr/pgsql-9.6/bin/psql -c "CREATE DATABASE fusionpbx";
-sudo -u postgres /usr/pgsql-9.6/bin/psql -c "CREATE DATABASE freeswitch";
-sudo -u postgres /usr/pgsql-9.6/bin/psql -c "CREATE ROLE fusionpbx WITH SUPERUSER LOGIN PASSWORD '$password';"
-sudo -u postgres /usr/pgsql-9.6/bin/psql -c "CREATE ROLE freeswitch WITH SUPERUSER LOGIN PASSWORD '$password';"
-sudo -u postgres /usr/pgsql-9.6/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE fusionpbx to fusionpbx;"
-sudo -u postgres /usr/pgsql-9.6/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE freeswitch to fusionpbx;"
-sudo -u postgres /usr/pgsql-9.6/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE freeswitch to freeswitch;"
+sudo -u postgres /usr/pgsql-14/bin/psql -d fusionpbx -c "DROP SCHEMA public cascade;";
+sudo -u postgres /usr/pgsql-14/bin/psql -d fusionpbx -c "CREATE SCHEMA public;";
+sudo -u postgres /usr/pgsql-14/bin/psql -c "CREATE DATABASE fusionpbx";
+sudo -u postgres /usr/pgsql-14/bin/psql -c "CREATE DATABASE freeswitch";
+sudo -u postgres /usr/pgsql-14/bin/psql -c "CREATE ROLE fusionpbx WITH SUPERUSER LOGIN PASSWORD '$password';"
+sudo -u postgres /usr/pgsql-14/bin/psql -c "CREATE ROLE freeswitch WITH SUPERUSER LOGIN PASSWORD '$password';"
+sudo -u postgres /usr/pgsql-14/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE fusionpbx to fusionpbx;"
+sudo -u postgres /usr/pgsql-14/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE freeswitch to fusionpbx;"
+sudo -u postgres /usr/pgsql-14/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE freeswitch to freeswitch;"
 #ALTER USER fusionpbx WITH PASSWORD 'newpassword';
 cd $cwd
 
 #send a message
-verbose "PostgreSQL 9.6 installed"
+verbose "PostgreSQL 14 installed"
