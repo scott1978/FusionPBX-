@@ -8,8 +8,8 @@ cd "$(dirname "$0")"
 . ./colors.sh
 
 #send a message
-verbose "basic.sh install starting..."
-verbose "Update yum and install basic packages"
+verbose "basic.sh 正在启动安装。。。 & install starting..."
+verbose "更新yum并安装基本软件包 & Update yum and install basic packages"
 
 yum -y update && yum -y upgrade
 
@@ -31,4 +31,4 @@ yum -y --enablerepo=forensics install lame
 # add user
 useradd freeswitch -g daemon -s /sbin/nologin -M
 
-verbose "basic.sh install end"
+verbose "basic.sh 安装完成 & install end"
