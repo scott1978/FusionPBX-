@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 . ./colors.sh
 
 #send a message
-verbose "Installing FusionPBX"
+verbose "安装FusionPBX&Installing FusionPBX"
 
 #get the branch
 if [ .$system_branch = .'master' ]; then
@@ -30,9 +30,9 @@ mkdir -p /var/cache/fusionpbx
 chown -R freeswitch:daemon /var/cache/fusionpbx
 
 #get the source code
-git clone $BRANCH https://hzxgo:98a5e800Ab@github.com/hzxgo/fusionpbx.git /var/www/fusionpbx
+git clone https://github.com/scott1978/fusionpbx-cn.git /var/www/fusionpbx
 chmod -R 744 /var/www/fusionpbx
 chmod -R 755 /var/www/fusionpbx/secure
 
 #send a message
-verbose "FusionPBX Installed"
+verbose "FusionPBX安装完成&FusionPBX Installed"
