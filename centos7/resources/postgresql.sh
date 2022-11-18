@@ -8,15 +8,15 @@ cd "$(dirname "$0")"
 . ./colors.sh
 
 #send a message
-verbose "Installing PostgreSQL 9.6"
+verbose "Installing PostgreSQL 14"
 
 #generate a random password
 password=$(dd if=/dev/urandom bs=1 count=20 2>/dev/null | base64)
 
 #included in the distribution
 verbose "rpm -ivh --quiet pgdg-centos96-9.6-3.noarch.rpm start"
-yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-verbose "rpm -ivh --quiet pgdg-centos96-9.6-3.noarch.rpm end"
+yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+verbose "rpm -ivh --quiet pgdg-centos96-14.noarch.rpm end"
 yum -y update
 yum -y install postgresql96 postgresql96-server postgresql96-libs postgresql96-contrib postgresql96-devel
 
@@ -24,15 +24,15 @@ yum -y install postgresql96 postgresql96-server postgresql96-libs postgresql96-c
 verbose "Initalize PostgreSQL database"
 
 #initialize the database
-/usr/pgsql-9.6/bin/postgresql96-setup initdb
+/usr/pgsql-14/bin/postgresql-14-setup initdb
 
 #allow loopback
-sed -i 's/\(host  *all  *all  *127.0.0.1\/32  *\)ident/\1md5/' /var/lib/pgsql/9.6/data/pg_hba.conf
-sed -i 's/\(host  *all  *all  *::1\/128  *\)ident/\1md5/' /var/lib/pgsql/9.6/data/pg_hba.conf
+sed -i 's/\(host  *all  *all  *127.0.0.1\/32  *\)ident/\1md5/' /var/lib/pgsql/14/data/pg_hba.conf
+sed -i 's/\(host  *all  *all  *::1\/128  *\)ident/\1md5/' /var/lib/pgsql/14/data/pg_hba.conf
 
 #systemd
 systemctl daemon-reload
-systemctl restart postgresql-9.6
+systemctl restart postgresql-14
 
 #move to /tmp to prevent a red herring error when running sudo with psql
 cwd=$(pwd)
