@@ -25,6 +25,8 @@ verbose "初始化PostgreSQL数据库 & Initalize PostgreSQL database"
 
 #initialize the database
 /usr/pgsql-14/bin/postgresql-14-setup initdb
+systemctl enable postgresql-14
+systemctl start postgresql-14
 
 #allow loopback
 sed -i 's/\(host  *all  *all  *127.0.0.1\/32  *\)ident/\1md5/' /var/lib/pgsql/14/data/pg_hba.conf
