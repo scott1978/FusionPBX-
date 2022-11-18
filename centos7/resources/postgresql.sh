@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 . ./colors.sh
 
 #send a message
-verbose "Installing PostgreSQL 14"
+verbose "安装PostgreSQL 14 & Installing PostgreSQL 14"
 
 #generate a random password
 password=$(dd if=/dev/urandom bs=1 count=20 2>/dev/null | base64)
@@ -21,7 +21,7 @@ yum -y update
 yum -y install postgresql14 postgresql14-server postgresql14-libs postgresql14-contrib postgresql14-devel
 
 #send a message
-verbose "Initalize PostgreSQL database"
+verbose "初始化PostgreSQL数据库 & Initalize PostgreSQL database"
 
 #initialize the database
 /usr/pgsql-14/bin/postgresql-14-setup initdb
@@ -52,4 +52,4 @@ sudo -u postgres /usr/pgsql-14/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE fre
 cd $cwd
 
 #send a message
-verbose "PostgreSQL 14 installed"
+verbose "PostgreSQL 14 安装完成 & PostgreSQL 14 installed"
