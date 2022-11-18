@@ -18,7 +18,7 @@ verbose "rpm -ivh --quiet pgdg-centos96-9.6-3.noarch.rpm start"
 yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 verbose "rpm -ivh --quiet pgdg-centos96-14.noarch.rpm end"
 yum -y update
-yum -y install postgresql14 postgresql14-server postgresql14-libs postgresql14-contrib postgresql14-devel
+yum -y install postgresql14 postgresql14-server postgresql14-libs postgresql14-contrib
 
 #send a message
 verbose "初始化PostgreSQL数据库 & Initalize PostgreSQL database"
