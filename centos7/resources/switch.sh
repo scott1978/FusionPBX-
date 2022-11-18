@@ -11,7 +11,7 @@ if [ .$switch_source = .true ]; then
 	if [ ."$switch_branch" = "master" ]; then
 		switch/source-master.sh
 	else
-		switch/source-release.sh
+		switch/install_freeswitch.sh
 	fi
 
 	#copy the switch conf files to /etc/freeswitch
@@ -36,7 +36,7 @@ if [ .$switch_package = .true ]; then
 		if [ .$switch_package_all = .true ]; then
 			switch/package-all.sh
 		else
-			switch/package-release.sh
+			switch/install_freeswitch.sh
 		fi
 	fi
 
