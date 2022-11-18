@@ -10,7 +10,7 @@ cd "$(dirname "$0")"
 . ./resources/colors.sh
 
 # Update CentOS 
-verbose "开始在CentOS7上安装PBX&Begin to install pbx At CentOS7"
+verbose "开始在CentOS7上安装PBX & Begin to install pbx At CentOS7"
 
 # Install basic packages
 resources/basic.sh
@@ -47,7 +47,7 @@ resources/redis.sh
 resources/phpredis.sh
 
 #restart services
-verbose "重新启动以进行最终配置&Restarting packages for final configuration"
+verbose "重新启动以进行最终配置 & Restarting packages for final configuration"
 systemctl daemon-reload
 systemctl restart freeswitch
 systemctl restart php-fpm
