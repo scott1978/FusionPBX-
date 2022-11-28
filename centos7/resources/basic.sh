@@ -24,7 +24,7 @@ yum -y install curl-devel libcurl-devel pcre pcre-devel speex speex-devel ldns-d
 yum -y install memcached libmemcached-devel postgresql-devel libsndfile-devel
 yum -y install ghostscript libtiff-devel libtiff-tools at
 
-wget https://hzxgo.oss-cn-shanghai.aliyuncs.com/file/cert-forensics-tools-release-el7.rpm
+wget https://forensics.cert.org/cert-forensics-tools-release-el7.rpm
 rpm -Uvh cert-forensics-tools-release*rpm
 yum -y --enablerepo=forensics install lame
 
